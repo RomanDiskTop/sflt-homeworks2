@@ -19,41 +19,9 @@ while true; do echo -e "HTTP/1.1 200 OK\nContent-Type: text/plain\n\nsvc1 8000" 
 sudo apt update & sudo apt install haproxy
 ```
 3. Делаем конфигурационный файл HAProxy (/etc/haproxy/haproxy.cfg)
-```
-defaults #Дефолт настройки
-        log     global
-        mode    tcp
-        option  tcplog
-        option  dontlognull
-        timeout connect 5000
-        timeout client  50000
-        timeout server  50000
-        errorfile 400 /etc/haproxy/errors/400.http
-        errorfile 403 /etc/haproxy/errors/403.http
-        errorfile 408 /etc/haproxy/errors/408.http
-        errorfile 500 /etc/haproxy/errors/500.http
-        errorfile 502 /etc/haproxy/errors/502.http
-        errorfile 503 /etc/haproxy/errors/503.http
-        errorfile 504 /etc/haproxy/errors/504.http
 
-listen stats  # веб-страница со статистикой
-        bind                    :888
-        mode                    http
-        stats                   enable
-        stats uri               /stats
-        stats refresh           5s
-        stats realm             Haproxy\ Statistics
+[Конфигурация HAProxy](https://github.com/RomanDiskTop/sflt-homeworks2/haproxy.cfg)
 
-frontend http_front # фронт 
-        bind *:80
-        mode tcp
-        default_backend http_back
-
-backend http_back # бекенд
-        balance roundrobin
-        server server1 127.0.0.1:8000 check inter 3s
-        server server2 127.0.0.1:8001 check inter 3s
-```
 ![Cкриншот «Задание 1»](img/point_1.png)
 
 
