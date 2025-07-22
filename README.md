@@ -20,7 +20,7 @@ sudo apt update & sudo apt install haproxy
 ```
 3. Делаем конфигурационный файл HAProxy (/etc/haproxy/haproxy.cfg)
 
-[Конфигурация HAProxy](https://github.com/RomanDiskTop/sflt-homeworks2/haproxy.cfg)
+[Конфигурация HAProxy](https://github.com/RomanDiskTop/sflt-homeworks2/blob/main/haproxy.cfg)
 
 ![Cкриншот «Задание 1»](img/point_1.png)
 
